@@ -1,0 +1,27 @@
+<html>
+  <head>
+    {% if title %}
+    <title>{{title}} - Beanmind</title>
+    {% else %}
+    <title>Beanmind</title>
+    {% endif %}
+  </head>
+  <body>
+    {% extends "base.html" %}
+    {% block content %}
+    <h1>Bonjour Monsieur Poulpe, time to use your neurons!</h1>
+    
+    <div id="wrapper">
+		<div id="inputs">
+			<form name="input" action="/process-form" method="post">
+				<h2> Make a guess by typing 4 numbers between 1 and 8 </h2>
+				Guess: <input type="text" name="Guess" value=""><br/>		
+			
+				<input type="submit" value="Submit">
+			</form>
+            <h2> Yeah you're so good! </h2>
+		</div>
+	</div>
+  {% endblock %} 
+  </body>
+</html>

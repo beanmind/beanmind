@@ -1,0 +1,14 @@
+<html>
+  <head>
+    {% if title %}
+    <title>{{title}} - Beanmind</title>
+    {% else %}
+    <title>Beanmind</title>
+    {% endif %}
+  </head>
+  <body>
+    <div>Beanmind: <a href="/index">Home</a></div>
+    <hr>
+    {% block content %}{% endblock %}
+  </body>
+</html>

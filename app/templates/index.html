@@ -1,0 +1,104 @@
+<html>
+  <head>
+    {% if title %}
+    <title>{{title}} - Beanmind</title>
+    {% else %}
+    <title>Beanmind</title>
+    {% endif %}
+    <style>
+       h1 { color: red; }
+    </style>
+  </head>
+  <body>
+    {% extends "base.html" %}
+    {% block content %}
+    <h1>Bonjour Monsieur Poulpe, time to use your neurons! {{lala}}</h1>
+    
+    <div id="wrapper">
+		<div id="inputs">
+			<form name="input" action="/index" method="post">
+				<h2> Make a guess by typing 4 numbers between 1 and 8 </h2>
+				Guess: <input type="text" name="Guess" value=""><br/>		
+			
+				<input type="submit" value="Submit">
+			</form>
+		</div>
+	</div>
+    <div>
+        <table border="1px">
+            <thead>
+                <tr>
+                    <th>Attempt No</th>   
+                    <th>Guess </th>	
+                    <th>Red No </th>	
+                    <th>White No</th>	
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td> {{a1}} </td> 
+                    <td> {{red_num}}</td>
+                    <td> {{whith_num}}</td>
+                </tr> 
+                <tr>
+                    <td>2</td>
+                    <td>{{a2}}</td>  
+                    <td> {{red_num}}</td>
+                    <td> {{whith_num}}</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>{{a3}}</td>  
+                    <td> {{red_num}}</td>
+                    <td> {{whith_num}}</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>{{a4}}</td> 
+                    <td> {{red_num}}</td>
+                    <td> {{whith_num}}</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>{{a5}}</td>
+                    <td> {{red_num}}</td>
+                    <td> {{whith_num}}</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>{{a6}}</td>
+                    <td> {{red_num}}</td>
+                    <td> {{whith_num}}</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>{{a7}}</td>
+                    <td> {{red_num}}</td>
+                    <td> {{whith_num}}</td>                     
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>{{a8}}</td>
+                    <td> {{red_num}}</td>
+                    <td> {{whith_num}}</td>
+                </tr>                
+                <tr>
+                    <td>9</td>
+                    <td>{{a9}}</td> 
+                    <td> {{red_num}}</td>
+                    <td> {{whith_num}}</td>
+                </tr> 
+                <tr>
+                    <td>10</td>
+                    <td>{{a10}}</td> 
+                    <td> {{red_num}}</td>
+                    <td> {{whith_num}}</td>
+                </tr>                  
+            </tbody>
+        </table>
+    </div>
+    <h3>{{first}} {{red_number}} {{second}} {{white_number}} {{third}}<h3>
+  {% endblock %} 
+  </body>
+</html>
