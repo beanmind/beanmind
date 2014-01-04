@@ -3,12 +3,24 @@ from app import app
 import random
 
 
-# create two methods:
-# 1) def list_to_string(thelist): ...
-# 2) def string_to_list(thestring): ...
+#def add_two_numbers(a, b):
+ #   return a + b
+ 
+def list_to_string(Thelist):
+    Thelist = ''.join(Thelist)
+    return Thelist
 
-def add_two_numbers(a, b):
-    return a + b
+#>> from array import array
+#>> a = ['a','b','c','d']
+#>> array('B', map(ord,a)).tostring()    
+
+def string_to_list(Thestring):
+    #Thestring = Thestring.split
+    Thestring = [int(c) for c in Thestring]
+    Thestring= Thestring.replace("'",'')
+    return Thestring
+    
+        
 
 
 @app.route('/')
@@ -28,7 +40,7 @@ def index():
         list_guess = [0,0,0,0,0,0,0,0,0,0]
     r = request.cookies.get('r')
     if r == None:
-        r = 0 
+        r = 1 
     print list_guess       
     Secret = request.cookies.get('Secret')
     if Secret == None:
