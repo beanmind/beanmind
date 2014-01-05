@@ -17,7 +17,19 @@ def list_to_string(Thelist):
     Thelist = ''.join(map(str,Thelist))
     return Thelist
 
+#def string_to_listOfList(Thelist):
+#    Thelist = map(int, (Thelist.replace('[', '').replace(']', '')).split(","))
+#   return Thelist
 
+def list_to_string2(Thelist):
+    Thelist = ','.join(map(str,Thelist))
+    #Thelist = map(str,Thelist)
+    return Thelist
+
+def string2_to_list(Thestring2):
+    Thestring2 = map(int,Thestring2.split(","))
+    return Thestring2
+    
 @app.route('/')
 @app.route('/index', methods = ['POST', 'GET'])
 def index(): 
@@ -36,7 +48,8 @@ def index():
     r = request.cookies.get('r')
     if r == None:
         r = 0
-    print list_guess       
+    print list_guess
+    print "boo"
     Secret = request.cookies.get('Secret')
     if Secret == None:
         print "none"
@@ -50,19 +63,20 @@ def index():
         respEntry.set_cookie('Secret',  list_to_string(Secret))
         respEntry.set_cookie('red', str(red))
         respEntry.set_cookie('white', str(white))
-        respEntry.set_cookie('list_guess', list_to_string(list_guess))
+        respEntry.set_cookie('list_guess', list_to_string2(list_guess))
         respEntry.set_cookie('r', str(r))
         print list_to_string(Secret)
         return respEntry
         
     
     print str(red)
-    print list_to_string(list_guess)
+    
     print list_guess
     
     print "YET"
     
-            
+    
+    
     # get cookies
     if request.method =='GET':
         return render_template("index.html",
@@ -86,7 +100,7 @@ def index():
     # transform format
     guess = string_to_list(guess)
     Secret = string_to_list(Secret)
-    list_guess = string_to_list(list_guess)
+    list_guess = string2_to_list(list_guess)
     red = int(red)
     white = int(white)
     r = int(r)
@@ -160,7 +174,7 @@ def index():
     # result
     print red
     print white
-    list_guess[r] = list_to_string(guess)
+    list_guess[r] = int(list_to_string (guess))
     #list_guess[r] = "".join([str(c) for c in Guess])
     r = r + 1     
     print list_guess    
@@ -171,7 +185,7 @@ def index():
         ))
         respExit.set_cookie('red', str(red))
         respExit.set_cookie('white', str(white))
-        respExit.set_cookie('list_guess', list_to_string(list_guess))
+        respExit.set_cookie('list_guess', list_to_string2(list_guess))
         respExit.set_cookie('r', str(r))
         return respExit
     elif red == 0 and white == 1 or red==0 and white == 2:
@@ -179,7 +193,7 @@ def index():
         title = 'Beanmind', a1= list_guess[0], a2= list_guess[1], a3= list_guess[2], a4= list_guess[3], a5= list_guess[4], a6= list_guess[5], a7= list_guess[6], a8= list_guess[7], a9= list_guess[8], a10= list_guess[9],first = " Das Leben ist kein Ponyhof, you've got", second ='red and', third = 'white'  ))
         respExit.set_cookie('red', str(red))
         respExit.set_cookie('white', str(white))
-        respExit.set_cookie('list_guess', list_to_string(list_guess))
+        respExit.set_cookie('list_guess', list_to_string2(list_guess))
         respExit.set_cookie('r', str(r))
         return respExit
     elif red == 2:
@@ -187,7 +201,7 @@ def index():
         title = 'Beanmind', first = " Getting better! You've got", second ='red and', third = 'white', a1= list_guess[0], a2= list_guess[1], a3= list_guess[2], a4= list_guess[3], a5= list_guess[4], a6= list_guess[5], a7= list_guess[6], a8= list_guess[7], a9= list_guess[8], a10= list_guess[9] ))
         respExit.set_cookie('red', str(red))
         respExit.set_cookie('white', str(white))
-        respExit.set_cookie('list_guess', list_to_string(list_guess))
+        respExit.set_cookie('list_guess', list_to_string2(list_guess))
         respExit.set_cookie('r', str(r))
         return respExit
     elif red == 3:        
@@ -195,7 +209,7 @@ def index():
         title = 'Beanmind', first = " Almost. ALMOST! You've got", second ='red and',third ='white!' , a1= list_guess[0], a2= list_guess[1], a3= list_guess[2], a4= list_guess[3], a5= list_guess[4], a6= list_guess[5], a7= list_guess[6], a8= list_guess[7], a9= list_guess[8], a10= list_guess[9] ))
         respExit.set_cookie('red', str(red))
         respExit.set_cookie('white', str(white))
-        respExit.set_cookie('list_guess', list_to_string(list_guess))
+        respExit.set_cookie('list_guess', list_to_string2(list_guess))
         respExit.set_cookie('r', str(r))
         return respExit
     else:
@@ -203,6 +217,6 @@ def index():
         title = 'Beanmind', first = " You've got",second ='red and',third ='white', a1= list_guess[0], a2= list_guess[1], a3= list_guess[2], a4= list_guess[3], a5= list_guess[4], a6= list_guess[5], a7= list_guess[6], a8= list_guess[7], a9= list_guess[8], a10= list_guess[9] ))
         respExit.set_cookie('red', str(red))
         respExit.set_cookie('white', str(white))
-        respExit.set_cookie('list_guess', list_to_string(list_guess))
+        respExit.set_cookie('list_guess', list_to_string2(list_guess))
         respExit.set_cookie('r', str(r))
         return respExit
