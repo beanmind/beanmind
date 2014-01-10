@@ -98,12 +98,14 @@ def index():
         
     # get guess
     guess = request.form['Guess']
-    #if guess.isdigit():
-    #  if int(niveau)==1 or int(niveau)==2 or int(niveau)==3 or int(niveau)==4:
-    #   else:
-    #  return render_template("index.html",
-    #     title = 'Home', error typing = "Please read carefully:"
-    #     )
+    if not guess.isdigit():
+        return render_template("index.html",
+        title = 'Home', moi = "Please read carefully! I said:"
+        )
+    if guess.isdigit() and int(guess) <1111 or int(guess) >= 8888:
+        return render_template("index.html",
+        title = 'Home', moi = "Please read carefully! I said"
+        )
     
     
     print Secret
