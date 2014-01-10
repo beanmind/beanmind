@@ -100,11 +100,11 @@ def index():
     guess = request.form['Guess']
     if not guess.isdigit():
         return render_template("index.html",
-        title = 'Home', moi = "Please read carefully! I said:"
+        title = 'Home', check_guess = "Please read carefully! I said:"
         )
     if guess.isdigit() and int(guess) <1111 or int(guess) >= 8888:
         return render_template("index.html",
-        title = 'Home', moi = "Please read carefully! I said"
+        title = 'Home', check_guess = "Please read carefully! I said"
         )
     
     
