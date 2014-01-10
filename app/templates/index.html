@@ -17,10 +17,12 @@
     <div id="wrapper">
 		<div id="inputs">
 			<form name="input" action="/index" method="post">
-				<h2> Make a guess by typing 4 numbers between 1 and 8 </h2>
+				<h2>  Make a guess by typing 4 numbers between 1 and 8 </h2>
 				Guess: <input type="text" name="Guess" value=""><br/>		
-			
+                <tr> 
+                </tr>
 				<input type="submit" value="Submit">
+                <input type="reset" value="Reset">
 			</form>
 		</div>
 	</div>
@@ -28,73 +30,25 @@
         <table border="1px">
             <thead>
                 <tr>
-                    <th>Attempt No</th>   
-                    <th>Guess </th>	
-                    <th>Red No </th>	
-                    <th>White No</th>	
+                    <th> Attempt Number</th>   
+                    <th> Guess </th>	
+                    <th> Number of Reds </th>	
+                    <th> Number of Whites</th>	
                 </tr>
             </thead>
             <tbody>
+                {% for attempt_num in attempt_number %}                
+                   
                 <tr>
-                    <td>1</td>
-                    <td> {{a1}} </td> 
-                    <td> {{red_num}}</td>
-                    <td> {{whith_num}}</td>
-                </tr> 
-                <tr>
-                    <td>2</td>
-                    <td>{{a2}}</td>  
-                    <td> {{red_num}}</td>
-                    <td> {{whith_num}}</td>
+                    <td>{{ generalist[attempt_num][0] }}</td> 
+                    <td>{{ generalist[attempt_num][1] }}</td> 
+                    <td>{{ generalist[attempt_num][2] }}</td> 
+                    <td>{{ generalist[attempt_num][3] }}</td> 
+                     
                 </tr>
-                <tr>
-                    <td>3</td>
-                    <td>{{a3}}</td>  
-                    <td> {{red_num}}</td>
-                    <td> {{whith_num}}</td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>{{a4}}</td> 
-                    <td> {{red_num}}</td>
-                    <td> {{whith_num}}</td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td>{{a5}}</td>
-                    <td> {{red_num}}</td>
-                    <td> {{whith_num}}</td>
-                </tr>
-                <tr>
-                    <td>6</td>
-                    <td>{{a6}}</td>
-                    <td> {{red_num}}</td>
-                    <td> {{whith_num}}</td>
-                </tr>
-                <tr>
-                    <td>7</td>
-                    <td>{{a7}}</td>
-                    <td> {{red_num}}</td>
-                    <td> {{whith_num}}</td>                     
-                </tr>
-                <tr>
-                    <td>8</td>
-                    <td>{{a8}}</td>
-                    <td> {{red_num}}</td>
-                    <td> {{whith_num}}</td>
-                </tr>                
-                <tr>
-                    <td>9</td>
-                    <td>{{a9}}</td> 
-                    <td> {{red_num}}</td>
-                    <td> {{whith_num}}</td>
-                </tr> 
-                <tr>
-                    <td>10</td>
-                    <td>{{a10}}</td> 
-                    <td> {{red_num}}</td>
-                    <td> {{whith_num}}</td>
-                </tr>                  
+                {% endfor%}
+                
+                                  
             </tbody>
         </table>
     </div>

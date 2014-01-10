@@ -24,6 +24,9 @@ def list_to_string2(Thelist):
 def string2_to_list(Thestring2):
     Thestring2 = map(int,Thestring2.split(","))
     return Thestring2
+
+#def display_list_guess(list_guess):
+#   a1= list_guess[0], a2= list_guess[1], a3= list_guess[2], a4= list_guess[3], a5= list_guess[4], a6= list_guess[5], a7= list_guess[6], a8= list_guess[7], a9= list_guess[8], a10= list_guess[9]
     
 def set_cookies(respExit, r, list_guess, list_red, list_white):
     respExit.set_cookie('red', '', expires=0)
@@ -95,6 +98,13 @@ def index():
         
     # get guess
     guess = request.form['Guess']
+    #if guess.isdigit():
+    #  if int(niveau)==1 or int(niveau)==2 or int(niveau)==3 or int(niveau)==4:
+    #   else:
+    #  return render_template("index.html",
+    #     title = 'Home', error typing = "Please read carefully:"
+    #     )
+    
     
     print Secret
     print guess
@@ -167,29 +177,41 @@ def index():
     print list_red
     print list_white
     
+    attempt_number = range(1,11)
+    attempt_num = range(0,10)
+    print attempt_number
+    generalist = []
+    for i in range(0,10):
+        generalist.append([attempt_number[i], list_guess[i], list_red[i], list_white[i]])
+        print generalist   
+    
     if red == 0 and white == 0:   
-        respExit = make_response (render_template("index.html",
-        title = 'Beanmind', a1= list_guess[0], a2= list_guess[1], a3= list_guess[2], a4= list_guess[3], a5= list_guess[4], a6= list_guess[5], a7= list_guess[6], a8= list_guess[7], a9= list_guess[8], a10= list_guess[9], red_num = red, white_num = white, first = " Ca m'est saucisson mais quand meme, t'es trop nul! You've got nothing. Try again"  
+        respExit = make_response(render_template("index.html",
+        title = 'Beanmind',attempt_number = attempt_num, generalist = generalist, first = " Ca m'est saucisson mais quand meme, t'es trop nul! You've got nothing. Try again"  
         ))
         set_cookies(respExit, r, list_guess,list_red, list_white)
         return respExit
     elif red == 0 and white == 1 or red==0 and white == 2:
-        respExit = make_response ( render_template("index.html",
-        title = 'Beanmind', a1= list_guess[0], a2= list_guess[1], a3= list_guess[2], a4= list_guess[3], a5= list_guess[4], a6= list_guess[5], a7= list_guess[6], a8= list_guess[7], a9= list_guess[8], a10= list_guess[9],first = " Das Leben ist kein Ponyhof, you've got", second ='red and', third = 'white'  ))
+        respExit = make_response( render_template("index.html",
+        title = 'Beanmind', attempt_number = attempt_num, generalist = generalist, first = " Das Leben ist kein Ponyhof, you've got", red_number = red, second ='red and', white_number = white, third = 'white.'  
+        ))
         set_cookies(respExit, r, list_guess,list_red, list_white)
         return respExit
     elif red == 2:
         respExit = make_response ( render_template("index.html",
-        title = 'Beanmind', first = " Getting better! You've got", second ='red and', third = 'white', a1= list_guess[0], a2= list_guess[1], a3= list_guess[2], a4= list_guess[3], a5= list_guess[4], a6= list_guess[5], a7= list_guess[6], a8= list_guess[7], a9= list_guess[8], a10= list_guess[9] ))
+        title = 'Beanmind', attempt_number = attempt_num, generalist = generalist, first = " Getting better! You've got", red_number = red, second ='red and', white_number = white, third = 'white.'
+        ))
         set_cookies(respExit, r, list_guess,list_red, list_white)
         return respExit
     elif red == 3:        
         respExit = make_response ( render_template("index.html",
-        title = 'Beanmind', first = " Almost. ALMOST! You've got", second ='red and',third ='white!' , a1= list_guess[0], a2= list_guess[1], a3= list_guess[2], a4= list_guess[3], a5= list_guess[4], a6= list_guess[5], a7= list_guess[6], a8= list_guess[7], a9= list_guess[8], a10= list_guess[9] ))
+        title = 'Beanmind', attempt_number = attempt_num, generalist = generalist, first = " Almost. ALMOST! You've got", red_number = red, second ='red and', white_number = white, third ='white!'        
+        ))
         set_cookies(respExit, r, list_guess,list_red, list_white)
         return respExit
     else:
         respExit = make_response ( render_template("index.html",
-        title = 'Beanmind', first = " You've got",second ='red and',third ='white', a1= list_guess[0], a2= list_guess[1], a3= list_guess[2], a4= list_guess[3], a5= list_guess[4], a6= list_guess[5], a7= list_guess[6], a8= list_guess[7], a9= list_guess[8], a10= list_guess[9] ))
+        title = 'Beanmind', attempt_number = attempt_num, generalist = generalist, first = " You've got", red_number = red, second ='red and', white_number = white, third ='white.'
+        ))
         set_cookies(respExit, r, list_guess,list_red, list_white)
         return respExit
