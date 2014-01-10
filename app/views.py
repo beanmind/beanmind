@@ -102,7 +102,7 @@ def index():
         return render_template("index.html",
         title = 'Home', check_guess = "Please read carefully! I said:"
         )
-    if guess.isdigit() and int(guess) <1111 or int(guess) >= 8888:
+    if guess.isdigit() and int(guess) <1111 or int(guess) > 8888:
         return render_template("index.html",
         title = 'Home', check_guess = "Please read carefully! I said"
         )
