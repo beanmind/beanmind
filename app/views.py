@@ -1,12 +1,7 @@
 from flask import render_template, request, make_response
 from app import app
 import random
-
-#ajouter condition r<9
-
-
- 
-      
+     
 
 def string_to_list(Thestring):     
     Thestring = [int(c) for c in Thestring]    
@@ -35,6 +30,15 @@ def set_cookies(respExit, r, list_guess, list_red, list_white):
     respExit.set_cookie('list_red', list_to_string2(list_red))
     respExit.set_cookie('list_white', list_to_string2(list_white))
     respExit.set_cookie('r', str(r))
+    
+def reset_cookies(respExit, Secret, red, white, r, list_guess, list_red, list_white):
+    respExit.set_cookie('Secret','', expires=0)
+    respExit.set_cookie('red', '', expires=0)
+    respExit.set_cookie('white', '', expires=0)
+    respExit.set_cookie('list_guess', '', expires=0)
+    respExit.set_cookie('list_red', '', expires=0)
+    respExit.set_cookie('list_white', '', expires=0)
+    respExit.set_cookie('r', '', expires=0)
     
 @app.route('/')
 @app.route('/index', methods = ['POST', 'GET'])
@@ -100,11 +104,11 @@ def index():
     guess = request.form['Guess']
     if not guess.isdigit():
         return render_template("index.html",
-        title = 'Home', check_guess = "Please read carefully! I said:"
+        title = 'Home', check_guess = "Du, Dummkopf! Please read carefully! I said:"
         )
     if guess.isdigit() and int(guess) <1111 or int(guess) > 8888:
         return render_template("index.html",
-        title = 'Home', check_guess = "Please read carefully! I said"
+        title = 'Home', check_guess = "Du, Dummkopf! Please read carefully! I said"
         )
     
     
@@ -187,6 +191,12 @@ def index():
         generalist.append([attempt_number[i], list_guess[i], list_red[i], list_white[i]])
         print generalist   
     
+    if r==10 and red < 4:
+        respExit = make_response(render_template("index.html",
+        title = 'Beanmind',attempt_number = attempt_num, generalist = generalist, first = " Time's up. Sorry but you lost."  
+        ))
+        reset_cookies(respExit, Secret, red, white, r, list_guess, list_red, list_white)
+        return respExit
     if red == 0 and white == 0:   
         respExit = make_response(render_template("index.html",
         title = 'Beanmind',attempt_number = attempt_num, generalist = generalist, first = " Ca m'est saucisson mais quand meme, t'es trop nul! You've got nothing. Try again"  

@@ -1,27 +1,27 @@
 <html>
   <head>
+    <LINK Rel=stylesheet TYPE ="text/css" HREF="{{ url_for('static', filename='form_1.css') }}">
     {% if title %}
     <title>{{title}} - Beanmind</title>
     {% else %}
     <title>Beanmind</title>
     {% endif %}
-    <style>
-       h1 { color: red; }
-    </style>
+    
   </head>
   <body>
+    
     {% extends "base.html" %}
     {% block content %}
     <h1>Bonjour Monsieur Poulpe, time to use your neurons! {{lala}}</h1>
-    
+       
     <div id="wrapper">
 		<div id="inputs">
 			<form name="input" action="/index" method="post">
 				<h2> {{check_guess}} Make a guess by typing 4 numbers between 1 and 8 </h2>
-				Guess: <input type="text" name="Guess" value=""><br/>		
-                <tr> 
-                </tr>
-				<input type="submit" value="Submit">
+                <br> </br>
+                <input type="text" name="Guess" placeholder="Type your guess here" >		                
+                <br> </br>             
+				<input type="submit" value="Submit" ID="Button1" >
                 <input type="reset" value="Reset">
 			</form>
 		</div>
