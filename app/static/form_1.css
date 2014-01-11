@@ -3,22 +3,27 @@
 INPUT#Button1 {
         text-align:center;  
         Height: 30px;
-        Width: 50px;
-        background-color: #820404;
+        Width: 60px;
+        background-color: #A9A9A9;
         font-family: Verdana, sans-serif;
         font-size: 12px;
-        color: #FFFFFF;
-        border-radius:20%
+        color: black;
+        border-radius:10%;
+        font-weight:bold;
+        
 }
-    
+
 INPUT#Button1:hover {
-        background-color: yellow;
+        background-color: #D3D3D3;
+        opacity:0.2;
 
 }
 
-INPUT: focus {
-        border: 2px solid green;
+INPUT#Guess {
+    border: 2px solid #D3D3D3;
 }
+
+
 
 INPUT:invalid {
         border: 2px solid red;
@@ -26,7 +31,7 @@ INPUT:invalid {
 
 body{
     text-align:center;    
-    background-image :url('mind3.gif');
+    background-image :url('mind5.jpg');
     background-color:#cccccc;
 } 
 
@@ -54,3 +59,10 @@ table {
   margin: 0 auto;
 }
 
+h3 {
+  text-align:center;
+  font-family:Verdana;
+  font-weight:bold;
+  color: white;
+  font-size:1em;
+}  
