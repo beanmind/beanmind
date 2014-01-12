@@ -20,10 +20,10 @@
 			<form name="input" action="/index" method="post">
 				<h2> {{check_guess }} Make a guess by typing 4 numbers between 1 and 8 </h2>
                 <br> </br>
-                <input type="text" name="Guess" placeholder="Type your guess here" ID = "guess" >		                
-                <br> </br>             
-				<input type="submit" value="Submit" ID="Button1" >
-                <input type="reset" value="Restart" ID="Button1">
+                <div><input type="text" name="Guess" placeholder="Type your guess here" ID = "guess" ></div>		                
+                      
+				<div><input type="submit" value="Submit" ID="Button1" ></div>
+                <div><input type="reset" value="Restart" ID="Button1"></div>
 			</form>
 		</div>
 	</div>
@@ -35,17 +35,16 @@
                     <th> {{Guess_form}} </th>	
                     <th> {{Number_of_Reds}} </th>	
                     <th> {{Number_of_Whites}} </th>	
-                
+                </tr>
                 {% if red == 4 %}                 
                 <tr>                
-                   <img src= "/static/mind3win.png" / ID= "winner"> 
+                   <img src= "/static/mind7.jpg" ID= "moi"/> 
                 </tr> 
                 {% endif%}
                 
             </thead>
             <tbody>
-                {% for attempt_num in attempt_number %}                
-                   
+                {% for attempt_num in attempt_number %}                              
                 <tr>
                     <td>{{ generalist[attempt_num][0] }}</td> 
                     <td>{{ generalist[attempt_num][1] }}</td> 

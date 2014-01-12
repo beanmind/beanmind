@@ -1,7 +1,8 @@
 
 
 INPUT#Button1 {
-        text-align:center;  
+        text-align:center; 
+        margin: 0 auto;
         Height: 30px;
         Width: 60px;
         background-color: #A9A9A9;
@@ -10,6 +11,8 @@ INPUT#Button1 {
         color: black;
         border-radius:10%;
         font-weight:bold;
+        
+        
         
      
         
@@ -23,18 +26,24 @@ INPUT#Button1:hover {
 
 INPUT#Guess {
     border: 2px solid #D3D3D3;
+    Height: 30px;
+    Width: 150px;
+    
 }
 
+div div div {
+    display: inline-block;
+
+ }
 
 
-INPUT:invalid {
-        border: 2px solid red;
-}
+
 
 body{
-    text-align:center;    
+      
     background-image :url('mind6.jpg');
     background-color:#cccccc;
+    text-align:center;
 } 
 
 h1{
@@ -59,6 +68,10 @@ table {
   color: white;
   font-size:1em;  
   margin: 0 auto;
+  
+  table-layout: fixed;
+  width: 700px;
+  border: none
 }
 
 h3 {
@@ -69,7 +82,10 @@ h3 {
   font-size:1em;
 }  
 
-INPUT#winner {
-    border-style:outset;
-    margin : 10px 0 ;
+moi {
+    position:relative;
+    margin: auto;
+    text-align:center;
+    border: 2px green;
+    
 } 
