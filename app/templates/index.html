@@ -8,6 +8,7 @@
     {% endif %}
     
   </head>
+  
   <body>
     
     {% extends "base.html" %}
@@ -17,12 +18,12 @@
     <div id="wrapper">
 		<div id="inputs">
 			<form name="input" action="/index" method="post">
-				<h2> {{check_guess}} Make a guess by typing 4 numbers between 1 and 8 </h2>
+				<h2> {{check_guess }} Make a guess by typing 4 numbers between 1 and 8 </h2>
                 <br> </br>
                 <input type="text" name="Guess" placeholder="Type your guess here" ID = "guess" >		                
                 <br> </br>             
 				<input type="submit" value="Submit" ID="Button1" >
-                <input type="reset" value="Reset" ID="Button1">
+                <input type="reset" value="Restart" ID="Button1">
 			</form>
 		</div>
 	</div>
@@ -30,11 +31,17 @@
         <table border="1px">
             <thead>
                 <tr>
-                    <th> Attempt Number</th>   
-                    <th> Guess </th>	
-                    <th> Number of Reds </th>	
-                    <th> Number of Whites</th>	
-                </tr>
+                    <th> {{Attempt_Number}} </th>   
+                    <th> {{Guess_form}} </th>	
+                    <th> {{Number_of_Reds}} </th>	
+                    <th> {{Number_of_Whites}} </th>	
+                
+                {% if red == 4 %}                 
+                <tr>                
+                   <img src= "/static/mind3win.png" / ID= "winner"> 
+                </tr> 
+                {% endif%}
+                
             </thead>
             <tbody>
                 {% for attempt_num in attempt_number %}                
@@ -52,7 +59,7 @@
             </tbody>
         </table>
     </div>
-    <h3>{{first}} {{red_number}} {{second}} {{white_number}} {{third}}<h3>
+    <h3>{{first}} {{red_number}} {{second}} {{white_number}} {{third}} <h3>
   {% endblock %} 
   </body>
 </html>
