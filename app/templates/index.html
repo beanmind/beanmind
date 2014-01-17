@@ -13,7 +13,7 @@
     
     {% extends "base.html" %}
     {% block content %}
-    <h1>Bonjour Monsieur Poulpe, time to use your neurons! {{lala}}</h1>
+    <h1>Bonjour Monsieur Poulpe, time to use your neurons!</h1>
        
     <div id="wrapper">
 		<div id="inputs">
@@ -21,13 +21,14 @@
 				<h2> {{check_guess }} Make a guess by typing 4 numbers between 1 and 8 </h2>
                 <br> </br>
                 <div><input type="text" name="Guess" placeholder="Type your guess here" ID = "guess" ></div>		                
-                <div><input type="submit" value="Submit" ID="Button1" ></div>  
+                <div><input type="submit" value="Submit" ID="Button1" ></div>                                 
+			</form> 
+            
+            {% if (r == 10 or red == 4)%}
                 <a href = "/" >
                 <input type="submit" value="Restart" ID="Button2">
-                </a>      
-				              
-			</form>
-            
+                </a>                 
+            {% endif %} 
 		</div>
 	</div>
     <div>

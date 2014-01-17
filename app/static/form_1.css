@@ -32,6 +32,7 @@ INPUT#Button2 {
         color: black;
         border-radius:10%;
         font-weight:bold;
+        text-decoration: none;
        
 }
 

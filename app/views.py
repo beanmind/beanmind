@@ -156,7 +156,7 @@ def index():
             print red
         if red == 4:
             respExit = make_response(render_template("index.html",
-                title = 'Beanmind',first = " Yeah you're so good!", red = red ))
+                title = 'Beanmind',first = " Yeah you're so good!", red = red, r = r ))
             respExit.set_cookie('Secret','', expires=0)
             respExit.set_cookie('red', '', expires=0)
             respExit.set_cookie('white', '', expires=0)
@@ -201,7 +201,7 @@ def index():
     
     if r==10 and red < 4:
         respExit = make_response(render_template("index.html",
-        title = 'Beanmind', red = red, Attempt_Number= ' Attempt Number ', Guess_form = ' Guess ', Number_of_Reds = ' Number of Reds ', Number_of_Whites = ' Number of Whites ',attempt_number = attempt_num, generalist = generalist, first = " Time's up. Sorry but you lost. If you want to play again, click on 'restart'"  
+        title = 'Beanmind', r = r, red = red, Attempt_Number= ' Attempt Number ', Guess_form = ' Guess ', Number_of_Reds = ' Number of Reds ', Number_of_Whites = ' Number of Whites ',attempt_number = attempt_num, generalist = generalist, first = " Time's up. Sorry but you lost. If you want to play again, click on 'restart'"  
         ))
         reset_cookies(respExit, Secret, red, white, r, list_guess, list_red, list_white)
         return respExit
