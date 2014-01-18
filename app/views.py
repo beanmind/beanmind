@@ -162,7 +162,7 @@ def index():
     
     if r==10 and red < 4:
         respExit = make_response(render_template("index.html",
-        round = 10-r, r = r, red = red, Attempt_Number= ' Attempt Number ', Guess_form = ' Guess ', Number_of_Reds = ' Number of Reds ', Number_of_Whites = ' Number of Whites ',attempt_number = attempt_num, generalist = generalist, first = " Time's up. Sorry but you lost. If you want to play again, click on 'restart'"  
+        round = 10-r, r = r, red = red, Attempt_Number= ' Attempt Number ', Guess_form = ' Guess ', Number_of_Reds = ' Number of Reds ', Number_of_Whites = ' Number of Whites ',attempt_number = attempt_num, generalist = generalist, first = " Time's up. Sorry but you lost. The answer was ", red_number = list_to_string(Secret), second = ". If you want to play again, click on 'restart'"  
         ))
         reset_cookies(respExit, Secret, red, white, r, list_guess, list_red, list_white)
         return respExit
