@@ -20,18 +20,21 @@
 			<form name="input" action="/index" method="post">
 				<h2> {{check_guess }} Make a guess by typing 4 numbers between 1 and 8 </h2>
                 <br> </br>
-                <div><input type="text" name="Guess" placeholder="Type your guess here" ID = "guess" ></div>		                
-                <div><input type="submit" value="Submit" ID="Button1" ></div>                                 
+                <div><input type="text" name="Guess" placeholder="Type your guess here" autocomplete = "off" ID = "guess" >		                
+                <input type="submit" value="Submit" class="Button" ></div>                                 
 			</form> 
             
             {% if (r == 10 or red == 4)%}
                 <a href = "/" >
-                <input type="submit" value="Restart" ID="Button2">
+                <input type="submit" value="Restart" class="Button">
                 </a>                 
             {% endif %} 
 		</div>
 	</div>
-    <div>
+    <div id= "inline_table">
+        {% if r >=1 and red < 4%}
+        <p id= "rounds_left"> {{round}} ROUND(S) LEFT  </p>
+        {% endif %} 
         <table border="1px">
             <thead>
                 <tr>
@@ -62,7 +65,8 @@
             </tbody>
         </table>
     </div>
-    <h3>{{first}} {{red_number}} {{second}} {{white_number}} {{third}} <h3>
+    <h3>{{first}} {{red_number}} {{second}} {{white_number}} {{third}} </h3>
+    <h3 id="win" > {{fourth}} </h3>
   {% endblock %} 
   </body>
 </html>

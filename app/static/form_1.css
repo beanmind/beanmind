@@ -1,12 +1,12 @@
 
 
-INPUT#Button1 {
+.Button {
         text-align:center; 
         margin: 0 auto;
         Height: 30px;
         Width: 60px;
         background-color: #A9A9A9;
-        font-family: Verdana, sans-serif;
+        font-family: "Helvetica Neue", Helvetica;
         font-size: 12px;
         color: black;
         border-radius:10%;
@@ -15,33 +15,14 @@ INPUT#Button1 {
        
 }
 
-INPUT#Button1:hover {
+.Button:hover {
         background-color: #D3D3D3;
         opacity:0.2;
 
 }
 
-INPUT#Button2 {
-        text-align:center; 
-        margin: 0 auto;
-        Height: 30px;
-        Width: 60px;
-        background-color: #A9A9A9;
-        font-family: Verdana, sans-serif;
-        font-size: 12px;
-        color: black;
-        border-radius:10%;
-        font-weight:bold;
-        text-decoration: none;
-       
-}
 
-INPUT#Button2:hover {
-        background-color: #D3D3D3;
-        opacity:0.2;
-        left:10px;
 
-}
 
 INPUT#Guess {
     border: 2px solid #D3D3D3;
@@ -52,11 +33,7 @@ INPUT#Guess {
 
 div div div {
     display: inline-block;
-
  }
-
-
-
 
 body{
       
@@ -67,14 +44,14 @@ body{
 
 h1{
   text-align:center;
-  font-family:Verdana;
-  font-weight:bold;
-  color: white;
+  font-family:"Helvetica Neue", Helvetica;
+  font-weight:normal;
+  color: #4682B4;
 } 
 
 h2{
   text-align:center;
-  font-family:Verdana;
+  font-family:"Helvetica Neue", Helvetica;
   font-weight:bold;
   color: white;
   font-size:1em;
@@ -82,12 +59,12 @@ h2{
 
 table {
   text-align:center;
-  font-family:Verdana;
-  font-weight:bold;
+  font-family: "Helvetica Neue", Helvetica;
+  font-weight:normal;
   color: white;
-  font-size:1em;  
-  margin: 0 auto;
-  
+  font-size:0.9em;    
+  margin-left: 320px;
+  margin-right: 40px;  
   table-layout: fixed;
   width: 700px;
   border: none
@@ -95,16 +72,47 @@ table {
 
 h3 {
   text-align:center;
-  font-family:Verdana;
+  font-family:"Helvetica Neue", Helvetica;
   font-weight:bold;
   color: white;
   font-size:1em;
 }  
 
-moi {
+#moi {
     position:relative;
-    margin: auto;
+    margin-top: 20px;
+    margin-left: 56px;
     text-align:center;
-    border: 2px green;
+    border: 5px solid black;
+    border-radius:20%;
+    
+    
     
 } 
+
+p {   
+  font-family:"Helvetica Neue", Helvetica;
+  font-weight:normal;
+  color: red;
+  font-size:1em;
+}  
+
+#rounds_left { 
+    position:fixed;
+    font-weight: bold;
+    font-family:"Helvetica Neue", Helvetica;
+    margin-right: 10px;
+    margin-bottom: 600px;
+    margin-left: 50px;
+    color: red;
+}
+    
+
+#inline_table p, #inline_table table {
+    display: inline-block;
+    }
+    
+#fourth, #moi {
+    display: inline-block;
+}
+    
