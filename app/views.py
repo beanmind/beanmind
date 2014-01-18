@@ -20,7 +20,6 @@ def string2_to_list(Thestring2):
     Thestring2 = map(int,Thestring2.split(","))
     return Thestring2
 
-
 def set_cookies(respExit, r, list_guess, list_red, list_white):
     respExit.set_cookie('red', '', expires=0)
     respExit.set_cookie('white', '', expires=0)
@@ -64,7 +63,6 @@ def index():
     
     Secret = request.cookies.get('Secret')
     if Secret == None:
-        print "none"
         Secret = []
         for i in range(1, 5):
             Secret.append(random.randrange(1, 9, 1))
