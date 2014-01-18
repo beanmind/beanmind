@@ -12,8 +12,7 @@ def list_to_string(Thelist):
     return Thelist
 
 def list_to_string2(Thelist):
-    Thelist = ','.join(map(str,Thelist))
-    #Thelist = map(str,Thelist)
+    Thelist = ','.join(map(str,Thelist))    
     return Thelist
 
 def string2_to_list(Thestring2):
@@ -67,7 +66,7 @@ def index():
         for i in range(1, 5):
             Secret.append(random.randrange(1, 9, 1))
         respEntry = make_response(render_template("index.html",
-            title = 'Home', red = red, r = r
+        red = red, r = r
         ))
         
         respEntry.set_cookie('Secret', list_to_string(Secret))
@@ -83,7 +82,7 @@ def index():
     # get cookies
     if request.method =='GET':
         return render_template("index.html",
-            title = 'Home', red = red, r = r
+            red = red, r = r
             )
         
     # get guess
@@ -113,11 +112,11 @@ def index():
         for i in range (0,4):
             if guess[i] == 0 or guess[i] == 9:
                 return render_template("index.html",
-                title = 'Beanmind', r =r, red = red, Attempt_Number= ' Attempt Number ', Guess_form = ' Guess ', Number_of_Reds = ' Number of Reds ', Number_of_Whites = ' Number of Whites ', attempt_number = attempt_num, generalist = generalist, check_guess = "Du, Dummkopf! Please read carefully! I said:"
+                r =r, red = red, Attempt_Number= ' Attempt Number ', Guess_form = ' Guess ', Number_of_Reds = ' Number of Reds ', Number_of_Whites = ' Number of Whites ', attempt_number = attempt_num, generalist = generalist, check_guess = "Du, Dummkopf! Please read carefully! I said:"
                 )        
     else:   
         return render_template("index.html",
-        title = 'Beanmind', r = r, red = red, Attempt_Number= ' Attempt Number ', Guess_form = ' Guess ', Number_of_Reds = ' Number of Reds ', Number_of_Whites = ' Number of Whites ', attempt_number = attempt_num, generalist = generalist, check_guess = "Du, Dummkopf! Please read carefully! I said:"
+        r = r, red = red, Attempt_Number= ' Attempt Number ', Guess_form = ' Guess ', Number_of_Reds = ' Number of Reds ', Number_of_Whites = ' Number of Whites ', attempt_number = attempt_num, generalist = generalist, check_guess = "Du, Dummkopf! Please read carefully! I said:"
         )
        
     # checking for the reds
@@ -130,7 +129,7 @@ def index():
 
         if red == 4:
             respExit = make_response(render_template("index.html",
-                title = 'Beanmind',fourth = " Yeah you're so good!", red = red, r = r ))
+            fourth = " Yeah you're so good!", red = red, r = r ))
             respExit.set_cookie('Secret','', expires=0)
             respExit.set_cookie('red', '', expires=0)
             respExit.set_cookie('white', '', expires=0)
@@ -163,37 +162,37 @@ def index():
     
     if r==10 and red < 4:
         respExit = make_response(render_template("index.html",
-        title = 'Beanmind', round = 10-r, r = r, red = red, Attempt_Number= ' Attempt Number ', Guess_form = ' Guess ', Number_of_Reds = ' Number of Reds ', Number_of_Whites = ' Number of Whites ',attempt_number = attempt_num, generalist = generalist, first = " Time's up. Sorry but you lost. If you want to play again, click on 'restart'"  
+        round = 10-r, r = r, red = red, Attempt_Number= ' Attempt Number ', Guess_form = ' Guess ', Number_of_Reds = ' Number of Reds ', Number_of_Whites = ' Number of Whites ',attempt_number = attempt_num, generalist = generalist, first = " Time's up. Sorry but you lost. If you want to play again, click on 'restart'"  
         ))
         reset_cookies(respExit, Secret, red, white, r, list_guess, list_red, list_white)
         return respExit
     if red == 0 and white == 0:   
         respExit = make_response(render_template("index.html",
-        title = 'Beanmind', round = 10-r, r = r,red = red, Attempt_Number= ' Attempt Number ', Guess_form = ' Guess ', Number_of_Reds = ' Number of Reds ', Number_of_Whites = ' Number of Whites ',attempt_number = attempt_num, generalist = generalist, first = " Ca m'est saucisson mais quand meme, t'es trop nul! You've got nothing. Try again"  
+        round = 10-r, r = r,red = red, Attempt_Number= ' Attempt Number ', Guess_form = ' Guess ', Number_of_Reds = ' Number of Reds ', Number_of_Whites = ' Number of Whites ',attempt_number = attempt_num, generalist = generalist, first = " Ca m'est saucisson mais quand meme, t'es trop nul! You've got nothing. Try again"  
         ))
         set_cookies(respExit, r, list_guess,list_red, list_white)
         return respExit
     elif red == 0 and white == 1 or red==0 and white == 2:
         respExit = make_response( render_template("index.html",
-        title = 'Beanmind', round = 10-r,r = r, red = red, Attempt_Number= ' Attempt Number ', Guess_form = ' Guess ', Number_of_Reds = ' Number of Reds ', Number_of_Whites = ' Number of Whites ',attempt_number = attempt_num, generalist = generalist, first = " Das Leben ist kein Ponyhof, you've got", red_number = red, second ='red and', white_number = white, third = 'white.'  
+        round = 10-r,r = r, red = red, Attempt_Number= ' Attempt Number ', Guess_form = ' Guess ', Number_of_Reds = ' Number of Reds ', Number_of_Whites = ' Number of Whites ',attempt_number = attempt_num, generalist = generalist, first = " Das Leben ist kein Ponyhof, you've got", red_number = red, second ='red and', white_number = white, third = 'white.'  
         ))
         set_cookies(respExit, r, list_guess,list_red, list_white)
         return respExit
     elif red == 2:
         respExit = make_response ( render_template("index.html",
-        title = 'Beanmind', round = 10-r, r = r,red = red, Attempt_Number= ' Attempt Number ', Guess_form = ' Guess ', Number_of_Reds = ' Number of Reds ', Number_of_Whites = ' Number of Whites ',attempt_number = attempt_num, generalist = generalist, first = " Getting better! You've got", red_number = red, second ='red and', white_number = white, third = 'white.'
+        round = 10-r, r = r,red = red, Attempt_Number= ' Attempt Number ', Guess_form = ' Guess ', Number_of_Reds = ' Number of Reds ', Number_of_Whites = ' Number of Whites ',attempt_number = attempt_num, generalist = generalist, first = " Getting better! You've got", red_number = red, second ='red and', white_number = white, third = 'white.'
         ))
         set_cookies(respExit, r, list_guess,list_red, list_white)
         return respExit
     elif red == 3:        
         respExit = make_response ( render_template("index.html",
-        title = 'Beanmind', round = 10-r, r = r, red = red, Attempt_Number= ' Attempt Number ', Guess_form = ' Guess ', Number_of_Reds = ' Number of Reds ', Number_of_Whites = ' Number of Whites ',attempt_number = attempt_num, generalist = generalist, first = " Almost. ALMOST! You've got", red_number = red, second ='red and', white_number = white, third ='white!'        
+        round = 10-r, r = r, red = red, Attempt_Number= ' Attempt Number ', Guess_form = ' Guess ', Number_of_Reds = ' Number of Reds ', Number_of_Whites = ' Number of Whites ',attempt_number = attempt_num, generalist = generalist, first = " Almost. ALMOST! You've got", red_number = red, second ='red and', white_number = white, third ='white!'        
         ))
         set_cookies(respExit, r, list_guess,list_red, list_white)
         return respExit
     else:
         respExit = make_response ( render_template("index.html",
-        title = 'Beanmind', round = 10-r,r = r, red = red, Attempt_Number= ' Attempt Number ', Guess_form = ' Guess ', Number_of_Reds = ' Number of Reds ', Number_of_Whites = ' Number of Whites ', attempt_number = attempt_num, generalist = generalist, first = " You've got", red_number = red, second ='red and', white_number = white, third ='white.'
+        round = 10-r,r = r, red = red, Attempt_Number= ' Attempt Number ', Guess_form = ' Guess ', Number_of_Reds = ' Number of Reds ', Number_of_Whites = ' Number of Whites ', attempt_number = attempt_num, generalist = generalist, first = " You've got", red_number = red, second ='red and', white_number = white, third ='white.'
         ))
         set_cookies(respExit, r, list_guess,list_red, list_white)
         return respExit
