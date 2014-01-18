@@ -20,11 +20,10 @@
                 <div><input type="text" name="Guess" placeholder="Type your guess here" autocomplete = "off" ID = "guess" >		                
                 <input type="submit" value="Submit" class="Button" ></div>                                 
 			</form> 
-            
             {% if (r == 10 or red == 4)%}
-                <a href = "/" >
+            <form action="/" method="get">                            
                 <input type="submit" value="Restart" class="Button">
-                </a>                 
+            </form>                    
             {% endif %} 
 		</div>
 	</div>
