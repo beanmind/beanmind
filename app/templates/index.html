@@ -25,7 +25,14 @@
                 </form>                    
                 {% endif %} 
             </div>
-        
+            <div ID= "image">
+                {% if red == 4 %}                 
+                <tr>                
+                    <img src= "/static/mind7.jpg" ID= "moi"/> 
+                </tr> 
+                {% endif%}
+            </div>
+            
             <div id= "inline_table">
                 {% if r >=1 and red < 4%}
                     <div ID= "round">
@@ -67,11 +74,7 @@
                                     <th> {{Number_of_Reds}} </th>	
                                     <th> {{Number_of_Whites}} </th>	
                                 </tr>
-                                {% if red == 4 %}                 
-                                <tr>                
-                                   <img src= "/static/mind7.jpg" ID= "moi"/> 
-                                </tr> 
-                                {% endif%}
+                                
                                 
                             </thead>
                             <tbody>

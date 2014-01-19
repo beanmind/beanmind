@@ -100,6 +100,7 @@ def index():
     red = int(red)
     white = int(white)
     r = int(r)
+    print Secret
     
     attempt_number = range(1,11)
     attempt_num = range(0,r)

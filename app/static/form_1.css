@@ -24,11 +24,14 @@
     text-align: center
     }
 
+#inputs{
+    text-align: center;  
+}
+    
 INPUT#Guess {
     border: 2px solid #D3D3D3;
     Height: 30px;
-    Width: 150px;
-    margin-left:560px;    
+       
 }
 
 body{
@@ -104,13 +107,13 @@ h3 {
 }  
 
 #moi {
-    position:relative;
-    margin-top: 20px;
-    margin-left: 56px;
-    text-align:center;
     border: 5px solid black;
-    border-radius:20%;    
+    border-radius:20%;   
 } 
+
+#image{
+    text-align:center;
+}
 
 p {   
     font-family:"Helvetica Neue", Helvetica;
