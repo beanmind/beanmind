@@ -1,82 +1,106 @@
 
 
-.Button {
-        text-align:center; 
-        margin: 0 auto;
-        Height: 30px;
-        Width: 60px;
-        background-color: #A9A9A9;
-        font-family: "Helvetica Neue", Helvetica;
-        font-size: 12px;
-        color: black;
-        border-radius:10%;
-        font-weight:bold;
-        left:5px;
-        text-decoration: none;
-       
+.Button {       
+    margin: 0 auto;
+    Height: 30px;
+    Width: 60px;
+    background-color: #A9A9A9;
+    font-family: "Helvetica Neue", Helvetica;
+    font-size: 12px;
+    color: black;
+    border-radius:10%;
+    font-weight:bold;
+    left:5px;
+    text-decoration: none;  
+    text-align:center
 }
 
 .Button:hover {
-        background-color: #D3D3D3;
-        opacity:0.2;
-
+    background-color: #D3D3D3;
+    opacity:0.2;
 }
 
-
+#restart {
+    text-align: center
+    }
 
 INPUT#Guess {
     border: 2px solid #D3D3D3;
     Height: 30px;
     Width: 150px;
-    
+    margin-left:560px;    
 }
 
-div div div {
-    display: inline-block;
- }
-
 body{
-      
+    
+    color: white;  
     background-image :url('mind6.jpg');
-    background-color:#cccccc;
-    text-align:center;
+    background-color:#cccccc;    
 } 
 
 h1{
-  text-align:center;
-  font-family:"Helvetica Neue", Helvetica;
-  font-weight:normal;
-  color: #4682B4;
-  font-size:2em; 
+    text-align:center;
+    font-family:"Helvetica Neue", Helvetica;
+    font-weight:normal;
+    color: #4682B4;
+    font-size:2em; 
 } 
 
 h2{
-  text-align:center;
-  font-family:"Helvetica Neue", Helvetica;
-  font-weight:bold;
-  color: white;
-  font-size:1em;
+    text-align:center;
+    font-family:"Helvetica Neue", Helvetica;
+    font-weight:bold;
+    color: white;
+    font-size:1em;
 }
 
-table {
-  text-align:center;
-  font-family: "Helvetica Neue", Helvetica;
-  font-weight:normal;
-  color: white;
-  font-size:0.9em;    
-  margin-left: 320px;
-  margin-right: 40px;  
-  table-layout: fixed;
-  width: 700px;
-  border: none
+#round{
+    width: 28%;
+    vertical-align:top;
+    
+}
+
+#table1 {  
+    font-family: "Helvetica Neue", Helvetica;
+    font-weight:normal;
+    color: white;
+    font-size:0.9em;    
+     
+    table-layout: fixed;
+    font-weight: bold;
+    border: none;
+    padding-left: 20px;
+    
+}
+
+#table2{
+    width: 60%;
+}
+
+#table_tab {
+    text-align:center;
+    font-family: "Helvetica Neue", Helvetica;
+    font-weight:normal;
+    color: white;
+    font-size:1em;
+    width: 70%;
+        
+    table-layout: fixed;  
+    border: none;
+}
+
+.type_guess {
+    font-weight: bold;
+    font-size:0.7em; 
+    font-family: "Helvetica Neue", Helvetica;
 }
 
 h3 {
-  text-align:center;
-  font-family:"Helvetica Neue", Helvetica;
-  font-weight:bold;
-  color: white;
-  font-size:1em;
+    text-align:center;
+    font-family:"Helvetica Neue", Helvetica;
+    font-weight:bold;
+    color: white;
+    font-size:1em;
 }  
 
 #moi {
@@ -85,33 +109,29 @@ h3 {
     margin-left: 56px;
     text-align:center;
     border: 5px solid black;
-    border-radius:20%;
-    
-    
-    
+    border-radius:20%;    
 } 
 
 p {   
-  font-family:"Helvetica Neue", Helvetica;
-  font-weight:normal;
-  color: red;
-  font-size:1em;
+    font-family:"Helvetica Neue", Helvetica;
+    font-weight:normal;
+    color: red;
+    font-size:1em;
 }  
 
 #rounds_left { 
-    position:fixed;
-    font-weight: bold;
-    font-family:"Helvetica Neue", Helvetica;
-    margin-right: 10px;
-    margin-bottom: 600px;
-    margin-left: 50px;
-    color: red;
-}
     
+    font-weight: bold;
+    font-family:"Helvetica Neue", Helvetica; 
+    
+    color: red;
+    padding-top: 0px;
+    padding-left: 20px;
+}
 
-#inline_table p, #inline_table table {
+ #round, #table2   {
     display: inline-block;
-    }
+}
     
 #fourth, #moi {
     display: inline-block;

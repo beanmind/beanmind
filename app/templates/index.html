@@ -1,68 +1,100 @@
 <html>
-  <head>
-    <LINK Rel=stylesheet TYPE ="text/css" HREF="{{ url_for('static', filename='form_1.css') }}">
-        
+    <head>
+        <LINK Rel=stylesheet TYPE ="text/css" HREF="{{ url_for('static', filename='form_1.css') }}">
+   
     
-  </head>
+    </head>
   
-  <body>
+    <body> 
     
-    
-    {% block content %}
-    <br> </br>
-    <h1>Bonjour Monsieur Poulpe, time to use your neurons!</h1>
-       
-    <div id="wrapper">
-		<div id="inputs">
-			<form name="input" action="/index" method="post">
-				<h2> {{check_guess }} Make a guess by typing 4 numbers between 1 and 8 </h2>
-                <br> </br>
-                <div><input type="text" name="Guess" placeholder="Type your guess here" autocomplete = "off" ID = "guess" >		                
-                <input type="submit" value="Submit" class="Button" ></div>                                 
-			</form> 
-            {% if (r == 10 or red == 4)%}
-            <form action="/" method="get">                            
-                <input type="submit" value="Restart" class="Button">
-            </form>                    
-            {% endif %} 
-		</div>
-	</div>
-    <div id= "inline_table">
-        {% if r >=1 and red < 4%}
-        <p id= "rounds_left"> {{round}} ROUND(S) LEFT  </p>
-        {% endif %} 
-        <table border="1px">
-            <thead>
-                <tr>
-                    <th> {{Attempt_Number}} </th>   
-                    <th> {{Guess_form}} </th>	
-                    <th> {{Number_of_Reds}} </th>	
-                    <th> {{Number_of_Whites}} </th>	
-                </tr>
-                {% if red == 4 %}                 
-                <tr>                
-                   <img src= "/static/mind7.jpg" ID= "moi"/> 
-                </tr> 
-                {% endif%}
-                
-            </thead>
-            <tbody>
-                {% for attempt_num in attempt_number %}                              
-                <tr>
-                    <td>{{ generalist[attempt_num][0] }}</td> 
-                    <td>{{ generalist[attempt_num][1] }}</td> 
-                    <td>{{ generalist[attempt_num][2] }}</td> 
-                    <td>{{ generalist[attempt_num][3] }}</td> 
+        {% block content %}
+        <br> </br>
+        <h1>Bonjour Monsieur Poulpe, time to use your neurons!</h1>
+           
+        <div id="wrapper">
+            <div id="inputs">
+                <form name="input" action="/index" method="post">
+                    <h2> {{check_guess }} Make a guess by typing 4 numbers between 1 and 8 </h2>
+                    <br> </br>
+                    <div><input type="text" name="Guess" placeholder="Type your guess here" autocomplete = "off" ID = "guess" >		                
+                    <input type="submit" value="Submit" class="Button" ></div>                                 
+                </form> 
+                {% if (r == 10 or red == 4)%}
+                <form action="/" method="get" ID= "restart">                            
+                    <input type="submit" value="Restart" class="Button" >
+                </form>                    
+                {% endif %} 
+            </div>
+        
+            <div id= "inline_table">
+                {% if r >=1 and red < 4%}
+                    <div ID= "round">
+                        {% if r >=1 and red < 4%}
+                        <p ID="rounds_left"> {{round}} ROUND(S) LEFT  </p>
+                        <br> </br>
+                    
                      
-                </tr>
-                {% endfor%}
-                
-                                  
-            </tbody>
-        </table>
-    </div>
-    <h3>{{first}} {{red_number}} {{second}} {{white_number}} {{third}} </h3>
-    <h3 id="win" > {{fourth}} </h3>
-  {% endblock %} 
-  </body>
+                        <table border="1px" ID= "table1">
+                            <thead>
+                                <tr>
+                                   <th colspan = "4"> Write your thoughts in here!	</th>
+                                </tr>
+                                <tr> 
+                                    <th> 1 </th>
+                                    <th> 2 </th>
+                                    <th> 3 </th>
+                                    <th> 4 </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th> <input type="text" size= "1" class = "type_guess"> </th>                                    
+                                    <th> <input type="text" size= "1" class = "type_guess"></th>	
+                                    <th> <input type="text" size= "1" class = "type_guess"> </th>	
+                                    <th> <input type="text" size= "1" class = "type_guess"> </th>	
+                                </tr>
+                            </tbody>
+                        </table>
+                         {% endif %}
+                    </div>
+                {% endif %}
+                    <div ID= "table2">
+                        <table border="1px" ID= "table_tab" >
+                            <thead>
+                                <tr>
+                                    <th> {{Attempt_Number}} </th>   
+                                    <th> {{Guess_form}} </th>	
+                                    <th> {{Number_of_Reds}} </th>	
+                                    <th> {{Number_of_Whites}} </th>	
+                                </tr>
+                                {% if red == 4 %}                 
+                                <tr>                
+                                   <img src= "/static/mind7.jpg" ID= "moi"/> 
+                                </tr> 
+                                {% endif%}
+                                
+                            </thead>
+                            <tbody>
+                                {% for attempt_num in attempt_number %}                              
+                                <tr>
+                                    <td>{{ generalist[attempt_num][0] }}</td> 
+                                    <td>{{ generalist[attempt_num][1] }}</td> 
+                                    <td>{{ generalist[attempt_num][2] }}</td> 
+                                    <td>{{ generalist[attempt_num][3] }}</td> 
+                                     
+                                </tr>
+                                {% endfor%}                    
+                                                  
+                            </tbody>
+                        </table>
+                    </div>
+            </div>
+            <div ID= "toi">
+                <h3>{{first}} {{red_number}} {{second}} {{white_number}} {{third}} </h3>
+                <h3 id="win" > {{fourth}} </h3>
+            </div>
+        
+        </div>
+        {% endblock %} 
+    </body>
 </html>
