@@ -113,11 +113,11 @@ def index():
         for i in range (0,4):
             if guess[i] == 0 or guess[i] == 9:
                 return render_template("index.html",
-                r =r, red = red, Attempt_Number= ' Attempt Number ', Guess_form = ' Guess ', Number_of_Reds = ' Number of Reds ', Number_of_Whites = ' Number of Whites ', attempt_number = attempt_num, generalist = generalist, check_guess = "Du, Dummkopf! Please read carefully! I said:"
+                r =r, red = red, Attempt_Number= ' Attempt Number ', Guess_form = ' Guess ', Number_of_Reds = ' Number of Reds ', Number_of_Whites = ' Number of Whites ', attempt_number = attempt_num, generalist = generalist, check_guess = "Please read carefully! I said:"
                 )        
     else:   
         return render_template("index.html",
-        r = r, red = red, Attempt_Number= ' Attempt Number ', Guess_form = ' Guess ', Number_of_Reds = ' Number of Reds ', Number_of_Whites = ' Number of Whites ', attempt_number = attempt_num, generalist = generalist, check_guess = "Du, Dummkopf! Please read carefully! I said:"
+        r = r, red = red, Attempt_Number= ' Attempt Number ', Guess_form = ' Guess ', Number_of_Reds = ' Number of Reds ', Number_of_Whites = ' Number of Whites ', attempt_number = attempt_num, generalist = generalist, check_guess = "Please read carefully! I said:"
         )
        
     # checking for the reds
@@ -169,13 +169,13 @@ def index():
         return respExit
     if red == 0 and white == 0:   
         respExit = make_response(render_template("index.html",
-        round = 10-r, r = r,red = red, Attempt_Number= ' Attempt Number ', Guess_form = ' Guess ', Number_of_Reds = ' Number of Reds ', Number_of_Whites = ' Number of Whites ',attempt_number = attempt_num, generalist = generalist, first = " Ca m'est saucisson mais quand meme, t'es trop nul! You've got nothing. Try again"  
+        round = 10-r, r = r,red = red, Attempt_Number= ' Attempt Number ', Guess_form = ' Guess ', Number_of_Reds = ' Number of Reds ', Number_of_Whites = ' Number of Whites ',attempt_number = attempt_num, generalist = generalist, first = " You've got nothing. Try again!"
         ))
         set_cookies(respExit, r, list_guess,list_red, list_white)
         return respExit
     elif red == 0 and white == 1 or red==0 and white == 2:
         respExit = make_response( render_template("index.html",
-        round = 10-r,r = r, red = red, Attempt_Number= ' Attempt Number ', Guess_form = ' Guess ', Number_of_Reds = ' Number of Reds ', Number_of_Whites = ' Number of Whites ',attempt_number = attempt_num, generalist = generalist, first = " Das Leben ist kein Ponyhof, you've got", red_number = red, second ='red and', white_number = white, third = 'white.'  
+        round = 10-r,r = r, red = red, Attempt_Number= ' Attempt Number ', Guess_form = ' Guess ', Number_of_Reds = ' Number of Reds ', Number_of_Whites = ' Number of Whites ',attempt_number = attempt_num, generalist = generalist, first = " You've got", red_number = red, second ='red and', white_number = white, third = 'white.'
         ))
         set_cookies(respExit, r, list_guess,list_red, list_white)
         return respExit
